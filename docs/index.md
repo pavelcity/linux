@@ -30,7 +30,7 @@ sudo apt list
 
 ### MCeditor
 ```
-apt install mc
+sudo apt install mc
 ```
 
 ### Nginx
@@ -57,21 +57,39 @@ sudo service nginx status
 passwd
 ```
 
+---
+
 ### добавить учетную запись
+следуйте инструкциям, чтобы установить пароль и заполнить другую информацию
 ```
-sudo adduser coder
+adduser coder
 ```
 
-* установить пароль новому пользователю
+### добавить права суперпользователя для пользователя coder
+добавьте пользователя coder в группу sudo, используя команду
 ```
-sudo passwd coder
+usermod -aG sudo coder
+```
+
+### проверьте, что пользователь добавлен в группу sudo, выполните команду
+```
+groups coder
+```
+
+
+
+---
+
+### установить пароль новому пользователю
+```
+passwd coder
 ```
 ### удалить пользователя
 ```
-sudo deluser coder
+deluser coder
 ```
 ```
-sudo userdel coder
+userdel coder
 ```
 
 
