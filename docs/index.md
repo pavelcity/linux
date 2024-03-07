@@ -59,19 +59,19 @@ passwd
 
 ### добавить учетную запись
 ```
-sudo adduser <user-name>
+sudo adduser coder
 ```
 
 * установить пароль новому пользователю
 ```
-sudo passwd <user-name>
+sudo passwd coder
 ```
 ### удалить пользователя
 ```
-sudo deluser <user-name>
+sudo deluser coder
 ```
 ```
-sudo userdel <username>
+sudo userdel coder
 ```
 
 
