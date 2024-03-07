@@ -23,7 +23,7 @@ sudo apt search [package-name]
 ```
 sudo apt list
 ```
-
+ 
 ---
 
 ## Установка программ
