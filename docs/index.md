@@ -74,7 +74,7 @@ sudo nano /etc/ssh/sshd_config
 ### PasswordAuthentication no
 
 Раскомментируйте (убрав # в начале строки) параметр PasswordAuthentication и укажите значение no, получив строку вида
-![PasswordAuthentication](/assets/img/PasswordAuthentication.png){ loading=lazy }
+![PasswordAuthentication](assets/img/PasswordAuthentication.png){ loading=lazy }
 ```
 PasswordAuthentication no
 ```
