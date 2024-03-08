@@ -25,27 +25,35 @@ sudo apt list
 ```
  
 ---
+## ssh
 
-## Установка программ
-
-### MCeditor
+### Сгенерировать ключ
 ```
-sudo apt install mc
-```
-
-### Nginx
-```
-sudo apt install nginx
+ssh-keygen -t rsa
 ```
 
-* Добавление Nginx в автозагрузку:
+### Вывести ключ в терминал
 ```
-sudo systemctl enable nginx
+cat ~/.ssh/id_rsa.pub
 ```
-* Проверка статуса работы веб-сервера:
+
+### Скопировать ключ на удаленный сервер
+После ввода команды, введите пароль (не будет отображаться) и нажмите ENTER. Утилита скопирует содержимое открытого ключа (~/.ssh/id_rsa.pub) на удаленный сервер в файл authorized_keys.
 ```
-sudo service nginx status
+ssh-copy-id root@00.000.000.000
 ```
+
+### Если соединение быстро обрывается можно использовать эту команду
+```
+ssh -o ServerAliveInterval=60 root@00.000.000.000
+```
+
+### Зайти на сервер по ssh
+```
+ssh root@00.000.000.000
+```
+
+
 
 ---
 
@@ -56,6 +64,31 @@ sudo service nginx status
 ```
 passwd
 ```
+
+### Запрет входа по паролю ROOT
+когда вы убедились, что можете войти на сервер по SSH-ключу, стоит отключить возможность входа по паролю. Откройте файл конфигурации SSH
+```
+sudo nano /etc/ssh/sshd_config
+```
+
+### PasswordAuthentication no
+
+Раскомментируйте (убрав # в начале строки) параметр PasswordAuthentication и укажите значение no, получив строку вида
+![PasswordAuthentication](/assets/img/PasswordAuthentication.png){ loading=lazy }
+```
+PasswordAuthentication no
+```
+
+
+### перезапустите службу SSH
+сохраните файл и перезапустите службу SSH командой
+```
+sudo service ssh restart
+```
+
+
+
+
 
 ---
 
@@ -80,11 +113,11 @@ groups coder
 
 ---
 
-### установить пароль новому пользователю
+* установить пароль новому пользователю
 ```
 passwd coder
 ```
-### удалить пользователя
+* удалить пользователя
 ```
 deluser coder
 ```
@@ -116,6 +149,31 @@ w
 ```
 last
 ```
+
+
+---
+
+## Установка программ
+
+### MCeditor
+```
+sudo apt install mc
+```
+
+### Nginx
+```
+sudo apt install nginx
+```
+
+* Добавление Nginx в автозагрузку:
+```
+sudo systemctl enable nginx
+```
+* Проверка статуса работы веб-сервера:
+```
+sudo service nginx status
+```
+
 
 
 ---
