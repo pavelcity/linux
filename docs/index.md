@@ -243,6 +243,35 @@ sudo service nginx status
 ```
 
 
+### настройка nginx.conf
+
+```
+cd /etc/nginx/
+```
+```
+sudo nano nginx.conf
+```
+```
+sudo mcedit nginx.conf
+```
+
+* `1. имем блок gzip` - настройку для увеличения производительности сайта
+* `2. убираем #` - снимам комментарии с этих строк
+![gzip](assets/img/gzip.png)
+
+* `должно получиться вот так`
+![gzip2](assets/img/gzip3.png)
+
+* `gzip_comp_level 6` - уровень сжатия файлов
+
+сохраняем изменения и перегрузим nginx
+```
+sudo systemctl restart nginx
+```
+```
+sudo service nginx restart
+```
+
 
 ---
 
